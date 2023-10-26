@@ -1,6 +1,6 @@
 package qsh.learning.javaBeginner.vehicle;
 
-public class TerrestrialVehicle {
+public class TerrestrialVehicle implements Vehicle {
     private int speed = 0;
 
     public void accelerate()  {
@@ -23,4 +23,3 @@ public class TerrestrialVehicle {
 
 
 }
-
