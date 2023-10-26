@@ -53,18 +53,27 @@ public class Main {
         enginedVehicle.start();
         System.out.println("EnginedVehicle is started " + enginedVehicle.isStarted() + " should be true");
 
-        System.out.println("Actual vehicle speed " + enginedVehicle.getSpeed() + " should be 5");
-
-        enginedVehicle.accelerate(10);
-        System.out.println("Actual vehicle speed " + enginedVehicle.getSpeed() + " should be 15");
-
-        enginedVehicle.accelerate(20);
-        System.out.println("Actual vehicle speed " + enginedVehicle.getSpeed() + " should be 35");
-
-        enginedVehicle.decelerate(5);
-        System.out.println("Actual vehicle speed " + enginedVehicle.getSpeed() + " should be 30");
+        testVehicle(enginedVehicle, enginedVehicle.getPower());
 
         enginedVehicle.stop();
         System.out.println("Actual EnginedVehicle speed " + enginedVehicle.getSpeed() + " should be 0");
+    }
+
+    private static void testVehicle(EnginedVehicle vehicle, int speedIncrement) {
+        int previousSpeed = vehicle.getSpeed();
+        vehicle.accelerate();
+        System.out.println("Actual vehicle speed " + vehicle.getSpeed() + " should be " + (previousSpeed + speedIncrement));
+
+        previousSpeed = vehicle.getSpeed();
+        vehicle.accelerate();
+        System.out.println("Actual vehicle speed " + vehicle.getSpeed() + " should be " + (previousSpeed + speedIncrement));
+
+        previousSpeed = vehicle.getSpeed();
+        vehicle.accelerate();
+        System.out.println("Actual vehicle speed " + vehicle.getSpeed() + " should be " + (previousSpeed + speedIncrement));
+
+        previousSpeed = vehicle.getSpeed();
+        vehicle.decelerate();
+        System.out.println("Actual vehicle speed " + vehicle.getSpeed() + " should be " + (previousSpeed - speedIncrement));
     }
 }
