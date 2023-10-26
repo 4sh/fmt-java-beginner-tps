@@ -1,31 +1,30 @@
 package qsh.learning.javaBeginner.vehicle;
 
-abstract public class EnginedVehicle {
-    private int speed = 0;
+public abstract class EnginedVehicle extends TerrestrialVehicle {
     private boolean started = false;
 
     public void accelerate() {
-        this.speed += getPower();
+        for (int i = getPower(); i > 0; i--) {
+            super.accelerate();
+        }
     }
 
     public void decelerate() {
-        this.speed -= getPower();
+        for (int i = getPower(); i > 0; i--) {
+            super.decelerate();
+        }
     }
 
     abstract int getPower();
 
     public void start() {
         this.started = true;
-        this.speed = 5;
+        this.accelerate();
     }
 
     public void stop() {
+        this.resetSpeed();
         this.started = false;
-        this.speed = 0;
-    }
-
-    public int getSpeed() {
-        return speed;
     }
 
     public boolean isStarted() {
