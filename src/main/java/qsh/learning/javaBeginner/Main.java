@@ -5,33 +5,21 @@ import qsh.learning.javaBeginner.vehicle.Wheel;
 
 public class Main {
     public static void main(String[] args) {
-        var car = new Car();
-
-        var wheel1 = new Wheel();
-        wheel1.brandWheel = "Michelin";
-        wheel1.diameter = 19;
-        car.rightFrontWheel = wheel1;
-
-        var wheel2 = new Wheel();
-        wheel2.brandWheel = "Michelin";
-        wheel2.diameter = 19;
-        car.leftFrontWheel = wheel2;
-
-        var wheel3 = new Wheel();
-        wheel3.brandWheel = "Michelin";
-        wheel3.diameter = 18;
-        car.rightRearWheel = wheel3;
-
-        var wheel4 = new Wheel();
-        wheel4.brandWheel = "Michelin";
-        wheel4.diameter = 18;
-        car.leftRearWheel = wheel4;
+        var car = new Car(
+                new Wheel("Michelin", 19),
+                new Wheel("Michelin", 19),
+                new Wheel("Michelin", 18),
+                new Wheel("Michelin", 18));
 
         System.out.println("Wheels checkpoint");
-        System.out.println("Wheel right front should be Michelin/19 : " + car.rightFrontWheel.brandWheel + "/" + car.rightFrontWheel.diameter);
-        System.out.println("Wheel left front Michelin/19 : " + car.leftFrontWheel.brandWheel + "/" + car.leftFrontWheel.diameter);
-        System.out.println("Wheel right rear Michelin/18 : " + car.rightRearWheel.brandWheel + "/" + car.rightRearWheel.diameter);
-        System.out.println("Wheel left rear Michelin/18 : " + car.leftRearWheel.brandWheel + "/" + car.leftRearWheel.diameter);
+        System.out.println("Wheel right front should be Michelin/19 : " + car.getRightFrontWheel().getBrandWheel() +
+                "/" + car.getRightRearWheel().getDiameter());
+        System.out.println("Wheel left front Michelin/19 : " + car.getLeftFrontWheel().getBrandWheel() + "/" +
+                car.getLeftFrontWheel().getDiameter());
+        System.out.println("Wheel right rear Michelin/18 : " + car.getRightRearWheel().getBrandWheel() + "/" +
+                car.getRightRearWheel().getDiameter());
+        System.out.println("Wheel left rear Michelin/18 : " + car.getLeftRearWheel().getBrandWheel() + "/" +
+                car.getLeftRearWheel().getDiameter());
 
         System.out.println("Car is started " + car.isStarted() + " should be false");
         car.start();
