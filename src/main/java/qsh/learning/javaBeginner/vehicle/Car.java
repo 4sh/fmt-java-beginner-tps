@@ -11,7 +11,9 @@ public class Car extends EnginedVehicle {
                Wheel leftFrontWheel,
                Wheel rightRearWheel,
                Wheel leftRearWheel,
-               String immat) {
+               String immat,
+               int gazPool) {
+        super(gazPool);
         this.rightFrontWheel = rightFrontWheel;
         this.leftFrontWheel = leftFrontWheel;
         this.rightRearWheel = rightRearWheel;

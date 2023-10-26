@@ -9,7 +9,9 @@ public class Kart extends EnginedVehicle {
     public Kart(Wheel rightFrontWheel,
                 Wheel leftFrontWheel,
                 Wheel rightRearWheel,
-                Wheel leftRearWheel) {
+                Wheel leftRearWheel,
+                int gazPool) {
+        super(gazPool);
         this.rightFrontWheel = rightFrontWheel;
         this.leftFrontWheel = leftFrontWheel;
         this.rightRearWheel = rightRearWheel;
