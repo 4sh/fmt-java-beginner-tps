@@ -7,8 +7,11 @@ public class Car extends EnginedVehicle {
     private final Wheel leftRearWheel;
     private String immat;
 
-    public Car(Wheel rightFrontWheel, Wheel leftFrontWheel, Wheel rightRearWheel, Wheel leftRearWheel, String immat) {
-        super();
+    public Car(Wheel rightFrontWheel,
+               Wheel leftFrontWheel,
+               Wheel rightRearWheel,
+               Wheel leftRearWheel,
+               String immat) {
         this.rightFrontWheel = rightFrontWheel;
         this.leftFrontWheel = leftFrontWheel;
         this.rightRearWheel = rightRearWheel;
@@ -34,5 +37,10 @@ public class Car extends EnginedVehicle {
 
     public String getImmat() {
         return immat;
+    }
+
+    @Override
+    int getPower() {
+        return 6;
     }
 }

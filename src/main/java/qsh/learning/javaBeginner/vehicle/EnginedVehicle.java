@@ -1,20 +1,18 @@
 package qsh.learning.javaBeginner.vehicle;
 
-public class EnginedVehicle {
+abstract public class EnginedVehicle {
     private int speed = 0;
-    protected boolean started = false;
+    private boolean started = false;
 
-    public void accelerate(int speedValue) {
-        if (speedValue > 0) {
-            this.speed += speedValue;
-        }
+    public void accelerate() {
+        this.speed += getPower();
     }
 
-    public void decelerate(int speedValue) {
-        if (speedValue > 0) {
-            this.speed -= speedValue;
-        }
+    public void decelerate() {
+        this.speed -= getPower();
     }
+
+    abstract int getPower();
 
     public void start() {
         this.started = true;

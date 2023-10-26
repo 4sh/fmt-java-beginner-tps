@@ -1,6 +1,4 @@
-package qsh.learning.javaBeginner;
-
-import qsh.learning.javaBeginner.vehicle.*;
+package qsh.learning.javaBeginner.vehicle;
 
 public class Main {
     public static void main(String[] args) {

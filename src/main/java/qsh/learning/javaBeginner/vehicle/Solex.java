@@ -23,6 +23,11 @@ public class Solex extends EnginedVehicle {
         super.stop();
     }
 
+    @Override
+    int getPower() {
+        return 2;
+    }
+
     public Wheel getFrontWheel() {
         return frontWheel;
     }
