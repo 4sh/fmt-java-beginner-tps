@@ -6,7 +6,9 @@ public class Solex extends EnginedVehicle {
     private boolean stand = false;
 
     public Solex(Wheel frontWheel,
-                 Wheel rearWheel) {
+                 Wheel rearWheel,
+                 int gazPool) {
+        super(gazPool);
         this.frontWheel = frontWheel;
         this.rearWheel = rearWheel;
     }

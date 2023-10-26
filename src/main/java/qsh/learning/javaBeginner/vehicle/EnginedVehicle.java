@@ -2,10 +2,20 @@ package qsh.learning.javaBeginner.vehicle;
 
 public abstract class EnginedVehicle extends TerrestrialVehicle {
     private boolean started = false;
+    private int gazPool;
+
+    public EnginedVehicle(int gazPool) {
+        this.gazPool = gazPool;
+    }
 
     public void accelerate() {
         for (int i = getPower(); i > 0; i--) {
-            super.accelerate();
+            if (gazPool > 0) {
+                super.accelerate();
+                this.gazPool--;
+            } else {
+                stop();
+            }
         }
     }
 
@@ -29,5 +39,9 @@ public abstract class EnginedVehicle extends TerrestrialVehicle {
 
     public boolean isStarted() {
         return started;
+    }
+
+    public int getGazPool() {
+        return gazPool;
     }
 }
