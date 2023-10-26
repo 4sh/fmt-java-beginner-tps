@@ -7,17 +7,20 @@ public class Main {
                 new Wheel("Michelin", 19),
                 new Wheel("Michelin", 18),
                 new Wheel("Michelin", 18),
-                "AZ789BB");
+                "AZ789BB",
+                50);
         testCar(car);
 
         var solex = new Solex(new Wheel("Michelin", 19),
-                new Wheel("Michelin", 19));
+                new Wheel("Michelin", 19),
+                50);
         testSolex(solex);
 
         var kart = new Kart(new Wheel("Michelin", 19),
                 new Wheel("Michelin", 19),
                 new Wheel("Michelin", 19),
-                new Wheel("Michelin", 19));
+                new Wheel("Michelin", 19),
+                50);
         testKart(kart);
 
         var bike = new Bike(new Wheel("Michelin", 19),
@@ -65,6 +68,15 @@ public class Main {
 
         enginedVehicle.stop();
         System.out.println("Actual EnginedVehicle speed " + enginedVehicle.getSpeed() + " should be 0");
+
+        enginedVehicle.start();
+        for (int i = 0; i < 10; i++) {
+            System.out.println("Gaz pool : " + enginedVehicle.getGazPool());
+            System.out.println("Speed " + enginedVehicle.getSpeed());
+            enginedVehicle.accelerate();
+            System.out.println("Is started " + enginedVehicle.isStarted());
+
+        }
     }
 
     private static void testVehicle(TerrestrialVehicle vehicle) {
