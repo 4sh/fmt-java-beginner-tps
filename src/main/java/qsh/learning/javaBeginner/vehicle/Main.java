@@ -83,7 +83,7 @@ public class Main {
         testVehicle(vehicle, 1);
     }
 
-    private static void testVehicle(TerrestrialVehicle vehicle, int speedIncrement) {
+    private static void testVehicle(Vehicle vehicle, int speedIncrement) {
         int previousSpeed = vehicle.getSpeed();
         vehicle.accelerate();
         System.out.println("Actual vehicle speed " + vehicle.getSpeed() + " should be " + (previousSpeed + speedIncrement));
@@ -99,5 +99,9 @@ public class Main {
         previousSpeed = vehicle.getSpeed();
         vehicle.decelerate();
         System.out.println("Actual vehicle speed " + vehicle.getSpeed() + " should be " + (previousSpeed - speedIncrement));
+
+        System.out.println("Actual vehicle moving " + vehicle.isMoving() + " should be true");
+        vehicle.emergencyBraking();
+        System.out.println("Actual vehicle moving " + vehicle.isMoving() + " should be false");
     }
 }
