@@ -10,7 +10,6 @@ public class Kart extends EnginedVehicle {
                 Wheel leftFrontWheel,
                 Wheel rightRearWheel,
                 Wheel leftRearWheel) {
-        super();
         this.rightFrontWheel = rightFrontWheel;
         this.leftFrontWheel = leftFrontWheel;
         this.rightRearWheel = rightRearWheel;
@@ -31,5 +30,10 @@ public class Kart extends EnginedVehicle {
 
     public Wheel getLeftRearWheel() {
         return leftRearWheel;
+    }
+
+    @Override
+    int getPower() {
+        return 4;
     }
 }
