@@ -33,17 +33,18 @@ public class Main {
         System.out.println("Wheel right rear Michelin/18 : " + car.rightRearWheel.brandWheel + "/" + car.rightRearWheel.diameter);
         System.out.println("Wheel left rear Michelin/18 : " + car.leftRearWheel.brandWheel + "/" + car.leftRearWheel.diameter);
 
-        System.out.println("Car is started " + car.started + " should be false");
-        car.started = true;
-        car.speed = 5;
-        System.out.println("Car is started " + car.started + " should be true");
+        System.out.println("Car is started " + car.isStarted() + " should be false");
+        car.start();
+        System.out.println("Car is started " + car.isStarted() + " should be true");
 
-        System.out.println("Actual car speed " + car.speed + " should be 5");
-        car.speed += 5;
-        System.out.println("Actual car speed " + car.speed + " should be 10");
-        car.speed += 20;
-        System.out.println("Actual car speed " + car.speed + " should be 30");
-        car.speed -= 5;
-        System.out.println("Actual car speed " + car.speed + " should be 25");
+        System.out.println("Actual car speed " + car.getSpeed() + " should be 5");
+        car.accelerate(5);
+        System.out.println("Actual car speed " + car.getSpeed() + " should be 10");
+        car.accelerate(20);
+        System.out.println("Actual car speed " + car.getSpeed() + " should be 30");
+        car.decelerate(5);
+        System.out.println("Actual car speed " + car.getSpeed() + " should be 25");
+        car.accelerate(-5);
+        System.out.println("Actual car speed " + car.getSpeed() + " should be 25");
     }
 }
