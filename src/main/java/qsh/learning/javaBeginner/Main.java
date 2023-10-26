@@ -4,19 +4,28 @@ import qsh.learning.javaBeginner.vehicle.*;
 
 public class Main {
     public static void main(String[] args) {
-        var car = ;
+        var car = new Car(
+                new Wheel("Michelin", 19),
+                new Wheel("Michelin", 19),
+                new Wheel("Michelin", 18),
+                new Wheel("Michelin", 18),
+                "AZ789BB");
         System.out.println("Launch tests for car " + car.getImmat());
         testVehicle(car);
 
-        var solex = ;
+        var solex = new Solex(new Wheel("Michelin", 19),
+                new Wheel("Michelin", 19));
         System.out.println("Launch tests for solex");
         testVehicle(solex);
 
-        var kart = ;
+        var kart = new Kart(new Wheel("Michelin", 19),
+                new Wheel("Michelin", 19),
+                new Wheel("Michelin", 19),
+                new Wheel("Michelin", 19));
         System.out.println("Launch tests for kart");
         testVehicle(kart);
 
-        var enginedVehicle = ;
+        var enginedVehicle = new EnginedVehicle();
         System.out.println("Launch tests for engined vehicle");
         testVehicle(enginedVehicle);
     }
@@ -37,6 +46,9 @@ public class Main {
         System.out.println("Actual car speed " + enginedVehicle.getSpeed() + " should be 25");
         enginedVehicle.accelerate(-5);
         System.out.println("Actual car speed " + enginedVehicle.getSpeed() + " should be 25");
+
+        enginedVehicle.stop();
+        System.out.println("Actual EnginedVehicle speed " + enginedVehicle.getSpeed() + " should be 0");
 
         System.out.println("-----");
     }
