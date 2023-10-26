@@ -7,17 +7,25 @@ public class Main {
     public static void main(String[] args) {
         var car = new Car();
 
-        var wheel = new Wheel();
-        wheel.brandWheel = "Michelin";
-        /* modifier la taille du pneu à 18, exécuter main */
-        wheel.diameter = 19;
+        var wheel1 = new Wheel();
+        wheel1.brandWheel = "Michelin";
+        wheel1.diameter = 19;
+        car.rightFrontWheel = wheel1;
 
-        car.rightFrontWheel = wheel;
-        car.leftFrontWheel = wheel;
-        car.rightRearWheel = wheel;
-        car.leftRearWheel = wheel;
+        var wheel2 = new Wheel();
+        wheel2.brandWheel = "Michelin";
+        wheel2.diameter = 19;
+        car.leftFrontWheel = wheel2;
 
-        /* modifier la taille des pneus à 18 uniquement pour les pneus arrières */
+        var wheel3 = new Wheel();
+        wheel3.brandWheel = "Michelin";
+        wheel3.diameter = 18;
+        car.rightRearWheel = wheel3;
+
+        var wheel4 = new Wheel();
+        wheel4.brandWheel = "Michelin";
+        wheel4.diameter = 18;
+        car.leftRearWheel = wheel4;
 
         System.out.println("Wheels checkpoint");
         System.out.println("Wheel right front should be Michelin/19 : " + car.rightFrontWheel.brandWheel + "/" + car.rightFrontWheel.diameter);
