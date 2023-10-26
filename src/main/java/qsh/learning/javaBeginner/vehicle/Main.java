@@ -19,6 +19,10 @@ public class Main {
                 new Wheel("Michelin", 19),
                 new Wheel("Michelin", 19));
         testKart(kart);
+
+        var bike = new Bike(new Wheel("Michelin", 19),
+                new Wheel("Michelin", 19));
+        testBike(bike);
     }
 
     private static void testCar(Car car) {
@@ -46,6 +50,12 @@ public class Main {
         System.out.println("----------------------");
     }
 
+    private static void testBike(Bike bike) {
+        System.out.println("Launch tests for bike ");
+        testVehicle(bike);
+        System.out.println("----------------------");
+    }
+
     private static void testVehicle(EnginedVehicle enginedVehicle) {
         System.out.println("EnginedVehicle is started " + enginedVehicle.isStarted() + " should be false");
         enginedVehicle.start();
@@ -57,7 +67,11 @@ public class Main {
         System.out.println("Actual EnginedVehicle speed " + enginedVehicle.getSpeed() + " should be 0");
     }
 
-    private static void testVehicle(EnginedVehicle vehicle, int speedIncrement) {
+    private static void testVehicle(TerrestrialVehicle vehicle) {
+        testVehicle(vehicle, 1);
+    }
+
+    private static void testVehicle(TerrestrialVehicle vehicle, int speedIncrement) {
         int previousSpeed = vehicle.getSpeed();
         vehicle.accelerate();
         System.out.println("Actual vehicle speed " + vehicle.getSpeed() + " should be " + (previousSpeed + speedIncrement));
