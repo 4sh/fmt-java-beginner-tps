@@ -12,9 +12,9 @@ public class Main {
                 "AZ789BB",
                 50);
 
-        if (car.getRightFrontWheel() == car.getLeftFrontWheel() &&
-                car.getRightRearWheel() == car.getLeftRearWheel() &&
-                car.getRightFrontWheel() == car.getRightRearWheel()) {
+        if (car.getRightFrontWheel().equals(car.getLeftFrontWheel()) &&
+                car.getRightRearWheel().equals(car.getLeftRearWheel()) &&
+                car.getRightFrontWheel().equals(car.getRightRearWheel())) {
             System.out.println("SUCCESS: all wheels are same : " + car.getRightFrontWheel() + " " +
                     car.getLeftFrontWheel()+ " " + car.getRightRearWheel()+ " "
                     + car.getRightRearWheel() );
@@ -24,5 +24,7 @@ public class Main {
                     car.getLeftFrontWheel()+ " " + car.getRightRearWheel()+ " "
                     + car.getRightRearWheel() );
         }
+
+        //System.out.println("Wheel prepared : " + Wheel.wheelCounter);
     }
 }
