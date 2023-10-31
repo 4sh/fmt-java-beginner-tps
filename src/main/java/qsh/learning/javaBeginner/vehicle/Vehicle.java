@@ -1,7 +1,7 @@
 package qsh.learning.javaBeginner.vehicle;
 
 public interface Vehicle {
-    void accelerate();
+    void accelerate() throws NoAccelerationException, TooHighSpeedException;
 
     void decelerate();
 
