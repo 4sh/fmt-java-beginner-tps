@@ -7,25 +7,22 @@ public class Main {
         var car = new Car(
                 new Wheel("Michelin", 19),
                 new Wheel("Michelin", 19),
-                new Wheel("Michelin", 18),
-                new Wheel("Michelin", 18),
+                new Wheel("Michelin", 19),
+                new Wheel("Michelin", 19),
                 "AZ789BB",
                 50);
 
-        System.out.println("Test Gaz pool =>");
-        car.start();
-        for (int i = 0; i < 10; i++) {
-            System.out.println("Gaz pool : " + car.getGazPool());
-            System.out.println("Speed " + car.getSpeed());
-            try {
-                car.accelerate();
-                System.out.println("Is started ? " + car.isStarted());
-            } catch (NoAccelerationException e) {
-                System.out.println("Is started ? " + car.isStarted());
-                e.printStackTrace();
-                break;
-            }
+        if (car.getRightFrontWheel() == car.getLeftFrontWheel() &&
+                car.getRightRearWheel() == car.getLeftRearWheel() &&
+                car.getRightFrontWheel() == car.getRightRearWheel()) {
+            System.out.println("SUCCESS: all wheels are same : " + car.getRightFrontWheel() + " " +
+                    car.getLeftFrontWheel()+ " " + car.getRightRearWheel()+ " "
+                    + car.getRightRearWheel() );
 
+        } else {
+            System.out.println("FAIL: all wheels are not same : " + car.getRightFrontWheel() + " " +
+                    car.getLeftFrontWheel()+ " " + car.getRightRearWheel()+ " "
+                    + car.getRightRearWheel() );
         }
     }
-    }
+}
