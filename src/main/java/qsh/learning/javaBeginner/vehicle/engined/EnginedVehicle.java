@@ -1,6 +1,5 @@
 package qsh.learning.javaBeginner.vehicle.engined;
 
-import qsh.learning.javaBeginner.vehicle.EmptyPoolException;
 import qsh.learning.javaBeginner.vehicle.terrestrial.TerrestrialVehicle;
 
 public abstract class EnginedVehicle extends TerrestrialVehicle {
