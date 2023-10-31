@@ -21,10 +21,15 @@ public record Wheel(String brandWheel, int diameter) {
     public boolean compatibleWith(Wheel wheel) {
         var typeA = getType(brandWheel);
         var typeB = getType(wheel.brandWheel);
-        return typeA == typeB;
+        return Objects.equals(typeA, typeB);
     }
 
     private String getType(String brandWheel) {
-       return // ...
+        return switch (buildBrandTag(brandWheel)) {
+            case "MICHE", "GOODY", "HANKO" -> "A";
+            case "CONTI", "PIREL" -> "B";
+            case "DUNLO", "BRIDG" -> "C";
+            default -> null;
+        };
     }
 }
