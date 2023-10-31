@@ -1,7 +1,6 @@
 package qsh.learning.javaBeginner.vehicle.engined;
 
 import qsh.learning.javaBeginner.vehicle.Wheel;
-import qsh.learning.javaBeginner.vehicle.engined.EnginedVehicle;
 
 public class Car extends EnginedVehicle {
     private final Wheel rightFrontWheel;
@@ -47,5 +46,12 @@ public class Car extends EnginedVehicle {
     @Override
     public int getPower() {
         return 6;
+    }
+
+    public String getWheelsDescription() {
+        return getLeftFrontWheel().toString() + " "
+                + getRightFrontWheel().toString() + " "
+                + getLeftRearWheel().toString() + " "
+                + getRightRearWheel().toString();
     }
 }
