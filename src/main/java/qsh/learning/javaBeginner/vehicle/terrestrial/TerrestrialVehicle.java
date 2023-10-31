@@ -1,11 +1,16 @@
 package qsh.learning.javaBeginner.vehicle.terrestrial;
 
+import qsh.learning.javaBeginner.vehicle.NoAccelerationException;
+import qsh.learning.javaBeginner.vehicle.TooHighSpeedException;
 import qsh.learning.javaBeginner.vehicle.Vehicle;
 
 public class TerrestrialVehicle implements Vehicle {
     private int speed = 0;
 
-    public void accelerate()  {
+    public void accelerate() throws NoAccelerationException, TooHighSpeedException {
+        if (speed > 30) {
+            throw new TooHighSpeedException();
+        }
         this.speed++;
     }
 

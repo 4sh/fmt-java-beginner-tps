@@ -3,7 +3,7 @@ package qsh.learning.javaBeginner.vehicle;
 import qsh.learning.javaBeginner.vehicle.engined.Car;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws NoAccelerationException {
         var car = new Car(
                 new Wheel("Michelin", 19),
                 new Wheel("Michelin", 19),
@@ -17,8 +17,15 @@ public class Main {
         for (int i = 0; i < 10; i++) {
             System.out.println("Gaz pool : " + car.getGazPool());
             System.out.println("Speed " + car.getSpeed());
-            car.accelerate();
-            System.out.println("Is started ? " + car.isStarted());
+            try {
+                car.accelerate();
+                System.out.println("Is started ? " + car.isStarted());
+            } catch (NoAccelerationException e) {
+                System.out.println("Is started ? " + car.isStarted());
+                e.printStackTrace();
+                break;
+            }
+
         }
     }
-}
+    }

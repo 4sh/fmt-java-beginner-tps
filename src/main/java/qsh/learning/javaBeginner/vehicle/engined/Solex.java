@@ -1,5 +1,6 @@
 package qsh.learning.javaBeginner.vehicle.engined;
 
+import qsh.learning.javaBeginner.vehicle.NoAccelerationException;
 import qsh.learning.javaBeginner.vehicle.Wheel;
 import qsh.learning.javaBeginner.vehicle.engined.EnginedVehicle;
 
@@ -17,7 +18,7 @@ public class Solex extends EnginedVehicle {
     }
 
     @Override
-    public void start() {
+    public void start() throws NoAccelerationException {
         this.stand = false;
         super.start();
     }
