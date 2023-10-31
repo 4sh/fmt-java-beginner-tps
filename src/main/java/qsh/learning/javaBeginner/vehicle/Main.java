@@ -25,6 +25,6 @@ public class Main {
                     + car.getRightRearWheel() );
         }
 
-        //System.out.println("Wheel prepared : " + Wheel.wheelCounter);
+        System.out.println("Wheel prepared : " + Wheel.wheelCounter);
     }
 }
