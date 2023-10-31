@@ -49,9 +49,14 @@ public class Car extends EnginedVehicle {
     }
 
     public String getWheelsDescription() {
-        return getLeftFrontWheel().toString() + " "
-                + getRightFrontWheel().toString() + " "
-                + getLeftRearWheel().toString() + " "
-                + getRightRearWheel().toString();
+        return """
+               {LF_____}---{RF_____}
+                         |
+                         |
+               {LR_____}---{RR_____}"""
+                .replace("{LF_____}", getLeftFrontWheel().toString())
+                .replace("{RF_____}", getRightFrontWheel().toString())
+                .replace("{LR_____}", getLeftRearWheel().toString())
+                .replace("{RR_____}", getRightRearWheel().toString());
     }
 }
