@@ -1,5 +1,12 @@
 package qsh.learning.javaBeginner.vehicle;
 
+import qsh.learning.javaBeginner.vehicle.engined.Car;
+import qsh.learning.javaBeginner.vehicle.engined.EnginedVehicle;
+import qsh.learning.javaBeginner.vehicle.engined.Kart;
+import qsh.learning.javaBeginner.vehicle.engined.Solex;
+import qsh.learning.javaBeginner.vehicle.terrestrial.Bike;
+import qsh.learning.javaBeginner.vehicle.terrestrial.TerrestrialVehicle;
+
 public class Main {
     public static void main(String[] args) {
         var car = new Car(

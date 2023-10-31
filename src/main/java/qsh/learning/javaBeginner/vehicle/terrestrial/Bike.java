@@ -1,4 +1,7 @@
-package qsh.learning.javaBeginner.vehicle;
+package qsh.learning.javaBeginner.vehicle.terrestrial;
+
+import qsh.learning.javaBeginner.vehicle.Wheel;
+import qsh.learning.javaBeginner.vehicle.terrestrial.TerrestrialVehicle;
 
 public class Bike extends TerrestrialVehicle {
     private final Wheel frontWheel;

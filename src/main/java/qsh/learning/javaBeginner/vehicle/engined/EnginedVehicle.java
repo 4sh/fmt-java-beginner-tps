@@ -1,4 +1,7 @@
-package qsh.learning.javaBeginner.vehicle;
+package qsh.learning.javaBeginner.vehicle.engined;
+
+import qsh.learning.javaBeginner.vehicle.EmptyPoolException;
+import qsh.learning.javaBeginner.vehicle.terrestrial.TerrestrialVehicle;
 
 public abstract class EnginedVehicle extends TerrestrialVehicle {
     private boolean started = false;
@@ -25,7 +28,7 @@ public abstract class EnginedVehicle extends TerrestrialVehicle {
         }
     }
 
-    abstract int getPower();
+    abstract public int getPower();
 
     public void start() {
         this.started = true;

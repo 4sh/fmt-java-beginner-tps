@@ -1,24 +1,24 @@
-package qsh.learning.javaBeginner.vehicle;
+package qsh.learning.javaBeginner.vehicle.engined;
 
-public class Car extends EnginedVehicle {
+import qsh.learning.javaBeginner.vehicle.Wheel;
+import qsh.learning.javaBeginner.vehicle.engined.EnginedVehicle;
+
+public class Kart extends EnginedVehicle {
     private final Wheel rightFrontWheel;
     private final Wheel leftFrontWheel;
     private final Wheel rightRearWheel;
     private final Wheel leftRearWheel;
-    private String immat;
 
-    public Car(Wheel rightFrontWheel,
-               Wheel leftFrontWheel,
-               Wheel rightRearWheel,
-               Wheel leftRearWheel,
-               String immat,
-               int gazPool) {
+    public Kart(Wheel rightFrontWheel,
+                Wheel leftFrontWheel,
+                Wheel rightRearWheel,
+                Wheel leftRearWheel,
+                int gazPool) {
         super(gazPool);
         this.rightFrontWheel = rightFrontWheel;
         this.leftFrontWheel = leftFrontWheel;
         this.rightRearWheel = rightRearWheel;
         this.leftRearWheel = leftRearWheel;
-        this.immat = immat;
     }
 
     public Wheel getRightFrontWheel() {
@@ -37,12 +37,8 @@ public class Car extends EnginedVehicle {
         return leftRearWheel;
     }
 
-    public String getImmat() {
-        return immat;
-    }
-
     @Override
-    int getPower() {
-        return 6;
+    public int getPower() {
+        return 4;
     }
 }

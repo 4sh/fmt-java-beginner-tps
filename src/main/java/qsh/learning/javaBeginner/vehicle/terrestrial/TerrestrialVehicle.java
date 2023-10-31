@@ -1,4 +1,6 @@
-package qsh.learning.javaBeginner.vehicle;
+package qsh.learning.javaBeginner.vehicle.terrestrial;
+
+import qsh.learning.javaBeginner.vehicle.Vehicle;
 
 public class TerrestrialVehicle implements Vehicle {
     private int speed = 0;
