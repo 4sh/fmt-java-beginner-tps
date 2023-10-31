@@ -5,9 +5,25 @@ import java.util.Objects;
 public record Wheel(BrandWheel brandWheel, int diameter) {
     public static Integer wheelCounter = 0;
 
-    // Enum BrandWheel
+    enum BrandWheel {
+        MICHE(TypeWheel.A),
+        GOODY(TypeWheel.A),
+        HANKO(TypeWheel.A),
+        CONTI(TypeWheel.B),
+        PIREL(TypeWheel.B),
+        DUNLO(TypeWheel.C),
+        BRIDG(TypeWheel.C);
 
-   // Enum ypeWheel
+        public final TypeWheel type;
+
+        BrandWheel(TypeWheel type) {
+            this.type = type;
+        }
+    }
+
+    enum TypeWheel {
+        A, B, C;
+    }
 
     public Wheel(String brandWheel, int diameter) {
         this(buildBrand(brandWheel), diameter);
@@ -19,8 +35,11 @@ public record Wheel(BrandWheel brandWheel, int diameter) {
     }
 
     static private BrandWheel buildBrand(String brandWheel) {
-        var brandTag = brandWheel.substring(0, 5).toUpperCase();
-        // construire BrandWheel avec .valueOf()
+        try {
+            return BrandWheel.valueOf(brandWheel.substring(0, 5).toUpperCase());
+        } catch (IllegalArgumentException e) {
+            return null;
+        }
     }
 
     private TypeWheel getTypeWheel() {
