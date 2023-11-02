@@ -3,13 +3,17 @@ package qsh.learning.javaBeginner.vehicle.engined;
 import qsh.learning.javaBeginner.vehicle.EmptyPoolException;
 import qsh.learning.javaBeginner.vehicle.NoAccelerationException;
 import qsh.learning.javaBeginner.vehicle.TooHighSpeedException;
+import qsh.learning.javaBeginner.vehicle.Wheel;
 import qsh.learning.javaBeginner.vehicle.terrestrial.TerrestrialVehicle;
+
+import java.util.List;
 
 public abstract class EnginedVehicle extends TerrestrialVehicle {
     private boolean started = false;
     private int gazPool;
 
-    public EnginedVehicle(int gazPool) {
+    public EnginedVehicle(int gazPool, List<Wheel> wheels) {
+        super(wheels);
         this.gazPool = gazPool;
     }
 

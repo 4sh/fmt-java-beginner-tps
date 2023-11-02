@@ -1,36 +1,33 @@
 package qsh.learning.javaBeginner.vehicle.engined;
 
 import qsh.learning.javaBeginner.vehicle.Wheel;
-import qsh.learning.javaBeginner.vehicle.engined.EnginedVehicle;
+
+import java.util.List;
 
 public class Kart extends EnginedVehicle {
 
-    public Kart(Wheel rightFrontWheel,
-                Wheel leftFrontWheel,
-                Wheel rightRearWheel,
-                Wheel leftRearWheel,
+    public Kart(Wheel wheel1,
+                Wheel wheel2,
+                Wheel wheel3,
+                Wheel wheel4,
                 int gazPool) {
-        super(gazPool);
-        this.wheels.add(rightFrontWheel);
-        this.wheels.add(leftFrontWheel);
-        this.wheels.add(rightRearWheel);
-        this.wheels.add(leftRearWheel);
+        super(gazPool, List.of(wheel1, wheel2, wheel3, wheel4));
     }
 
     public Wheel getRightFrontWheel() {
-        return this.wheels.get(0);
+        return this.rightWheels.get(0);
     }
 
     public Wheel getLeftFrontWheel() {
-        return this.wheels.get(1);
+        return this.leftWheels.get(0);
     }
 
     public Wheel getRightRearWheel() {
-        return this.wheels.get(2);
+        return this.rightWheels.get(1);
     }
 
     public Wheel getLeftRearWheel() {
-        return this.wheels.get(3);
+        return this.leftWheels.get(1);
     }
 
     @Override

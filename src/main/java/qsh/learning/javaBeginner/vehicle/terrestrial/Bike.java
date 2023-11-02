@@ -2,18 +2,20 @@ package qsh.learning.javaBeginner.vehicle.terrestrial;
 
 import qsh.learning.javaBeginner.vehicle.Wheel;
 
+import java.util.List;
+
 public class Bike extends TerrestrialVehicle {
 
-    public Bike(Wheel frontWheel, Wheel rearWheel) {
-        this.wheels.add(frontWheel);
-        this.wheels.add(rearWheel);
+    public Bike(Wheel wheel1,
+                Wheel wheel2) {
+        super(List.of(wheel1, wheel2), true);
     }
 
     public Wheel getFrontWheel() {
-        return this.wheels.get(0);
+        return this.leftWheels.get(0);
     }
 
     public Wheel getRearWheel() {
-        return this.wheels.get(1);
+        return this.leftWheels.get(1);
     }
 }

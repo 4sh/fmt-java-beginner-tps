@@ -2,7 +2,7 @@ package qsh.learning.javaBeginner.vehicle;
 
 import java.util.Objects;
 
-public record Wheel(BrandWheel brandWheel, int diameter) {
+public record Wheel(BrandWheel brandWheel, int diameter, DirectionWheel direction, double wear) {
     public static Integer wheelCounter = 0;
 
     enum BrandWheel {
@@ -25,8 +25,12 @@ public record Wheel(BrandWheel brandWheel, int diameter) {
         A, B, C;
     }
 
-    public Wheel(String brandWheel, int diameter) {
-        this(buildBrand(brandWheel), diameter);
+    public enum DirectionWheel {
+        RIGHT, LEFT;
+    }
+
+    public Wheel(String brandWheel, int diameter, DirectionWheel direction, double wear) {
+        this(buildBrand(brandWheel), diameter, direction, wear);
         wheelCounter++;
     }
 
