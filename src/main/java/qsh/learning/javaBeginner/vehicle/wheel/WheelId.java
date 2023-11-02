@@ -26,4 +26,17 @@ public class WheelId {
     public String getSerialId() {
         return serialId;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        WheelId wheelId = (WheelId) o;
+        return brandWheel == wheelId.brandWheel && Objects.equals(serialId, wheelId.serialId);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(brandWheel, serialId);
+    }
 }

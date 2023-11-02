@@ -5,16 +5,16 @@ import qsh.learning.javaBeginner.vehicle.TooHighSpeedException;
 import qsh.learning.javaBeginner.vehicle.Vehicle;
 import qsh.learning.javaBeginner.vehicle.wheel.DirectionWheel;
 import qsh.learning.javaBeginner.vehicle.wheel.Wheel;
+import qsh.learning.javaBeginner.vehicle.wheel.WheelId;
 
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.List;
+import java.util.*;
 
 public class TerrestrialVehicle implements Vehicle {
 
     private final boolean oneWheelsLine;
     protected List<Wheel> rightWheels = new ArrayList<>();
     protected List<Wheel> leftWheels = new ArrayList<>();
+    private final Set<WheelId> wheelIds = new HashSet<>();
     private int speed = 0;
 
 
@@ -30,10 +30,13 @@ public class TerrestrialVehicle implements Vehicle {
 
     private void setWheels(List<Wheel> wheels) {
         for (var wheel : wheels) {
-            if (wheel.direction() == DirectionWheel.RIGHT && !oneWheelsLine) {
-                this.rightWheels.add(wheel);
-            } else {
-                this.leftWheels.add(wheel);
+            if (!wheelIds.contains(wheel.wheelId())) {
+                wheelIds.add(wheel.wheelId());
+                if (wheel.direction() == DirectionWheel.RIGHT && !oneWheelsLine) {
+                    this.rightWheels.add(wheel);
+                } else {
+                    this.leftWheels.add(wheel);
+                }
             }
         }
     }
