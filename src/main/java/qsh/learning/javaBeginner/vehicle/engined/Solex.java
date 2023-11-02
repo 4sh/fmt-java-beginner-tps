@@ -3,15 +3,15 @@ package qsh.learning.javaBeginner.vehicle.engined;
 import qsh.learning.javaBeginner.vehicle.NoAccelerationException;
 import qsh.learning.javaBeginner.vehicle.Wheel;
 
+import java.util.List;
+
 public class Solex extends EnginedVehicle {
     private boolean stand = false;
 
-    public Solex(Wheel frontWheel,
-                 Wheel rearWheel,
+    public Solex(Wheel wheel1,
+                 Wheel wheel2,
                  int gazPool) {
-        super(gazPool);
-        this.wheels.add(frontWheel);
-        this.wheels.add(rearWheel);
+        super(gazPool, List.of(wheel1, wheel2));
     }
 
     @Override
@@ -29,14 +29,6 @@ public class Solex extends EnginedVehicle {
     @Override
     public int getPower() {
         return 2;
-    }
-
-    public Wheel getFrontWheel() {
-        return this.wheels.get(0);
-    }
-
-    public Wheel getRearWheel() {
-        return this.wheels.get(1);
     }
 
     public boolean isStand() {

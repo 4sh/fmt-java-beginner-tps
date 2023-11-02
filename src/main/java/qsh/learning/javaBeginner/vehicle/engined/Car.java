@@ -2,37 +2,35 @@ package qsh.learning.javaBeginner.vehicle.engined;
 
 import qsh.learning.javaBeginner.vehicle.Wheel;
 
+import java.util.List;
+
 public class Car extends EnginedVehicle {
     private String immat;
 
-    public Car(Wheel rightFrontWheel,
-               Wheel leftFrontWheel,
-               Wheel rightRearWheel,
-               Wheel leftRearWheel,
+    public Car(Wheel wheel1,
+               Wheel wheel2,
+               Wheel wheel3,
+               Wheel wheel4,
                String immat,
                int gazPool) {
-        super(gazPool);
-        this.wheels.add(rightFrontWheel);
-        this.wheels.add(leftFrontWheel);
-        this.wheels.add(rightRearWheel);
-        this.wheels.add(leftRearWheel);
+        super(gazPool, List.of(wheel1, wheel2, wheel3, wheel4));
         this.immat = immat;
     }
 
     public Wheel getRightFrontWheel() {
-        return this.wheels.get(0);
+        return this.rightWheels.get(0);
     }
 
     public Wheel getLeftFrontWheel() {
-        return this.wheels.get(1);
+        return this.leftWheels.get(0);
     }
 
     public Wheel getRightRearWheel() {
-        return this.wheels.get(2);
+        return this.rightWheels.get(1);
     }
 
     public Wheel getLeftRearWheel() {
-        return this.wheels.get(3);
+        return this.leftWheels.get(1);
     }
 
     public String getImmat() {
@@ -44,15 +42,5 @@ public class Car extends EnginedVehicle {
         return 6;
     }
 
-    public String getWheelsDescription() {
-        return """
-                {LF_____}---{RF_____}
-                          |
-                          |
-                {LR_____}---{RR_____}"""
-                .replace("{LF_____}", getLeftFrontWheel().toString())
-                .replace("{RF_____}", getRightFrontWheel().toString())
-                .replace("{LR_____}", getLeftRearWheel().toString())
-                .replace("{RR_____}", getRightRearWheel().toString());
-    }
+
 }

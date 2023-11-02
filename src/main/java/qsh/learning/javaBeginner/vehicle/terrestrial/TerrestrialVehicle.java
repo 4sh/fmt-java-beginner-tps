@@ -10,9 +10,20 @@ import java.util.List;
 
 public class TerrestrialVehicle implements Vehicle {
 
-    protected List<Wheel> wheels = new ArrayList<>();
-
+    private final boolean oneWheelsLine;
+    protected List<Wheel> rightWheels = new ArrayList<>();
+    protected List<Wheel> leftWheels = new ArrayList<>();
     private int speed = 0;
+
+    public TerrestrialVehicle(List<Wheel> wheels) {
+        this(wheels, false);
+    }
+
+    public TerrestrialVehicle(List<Wheel> wheels, boolean oneWheelsLine) {
+        this.oneWheelsLine = oneWheelsLine;
+        // ajouter les roues dans le bon axe, en fonction de la direction
+        // trier les roues sur chaque axes, du meilleur au plus mauvais pneu
+    }
 
     public void accelerate() throws NoAccelerationException, TooHighSpeedException {
         if (speed > 30) {
@@ -36,7 +47,19 @@ public class TerrestrialVehicle implements Vehicle {
     }
 
     public int getNbOfWheels() {
-       return wheels.size();
+        return rightWheels.size() + leftWheels.size();
     }
 
+    public String getWheelsDescription() {
+        // parcourir les roues pour afficher sur le modèle suivant
+        // RXX/BRAND---RXX/BRAND
+        //          |
+        // RXX/BRAND---RXX/BRAND
+        //
+        // ou 1 seul axe
+        //
+        // RXX/BRAND
+        //    |
+        // RXX/BRAND
+    }
 }
