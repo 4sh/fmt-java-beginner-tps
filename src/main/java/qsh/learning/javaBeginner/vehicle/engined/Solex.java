@@ -1,7 +1,7 @@
 package qsh.learning.javaBeginner.vehicle.engined;
 
 import qsh.learning.javaBeginner.vehicle.NoAccelerationException;
-import qsh.learning.javaBeginner.vehicle.Wheel;
+import qsh.learning.javaBeginner.vehicle.wheel.Wheel;
 
 import java.util.List;
 

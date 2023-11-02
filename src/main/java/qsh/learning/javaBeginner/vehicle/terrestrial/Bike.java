@@ -1,6 +1,6 @@
 package qsh.learning.javaBeginner.vehicle.terrestrial;
 
-import qsh.learning.javaBeginner.vehicle.Wheel;
+import qsh.learning.javaBeginner.vehicle.wheel.Wheel;
 
 import java.util.List;
 

@@ -3,7 +3,7 @@ package qsh.learning.javaBeginner.vehicle.engined;
 import qsh.learning.javaBeginner.vehicle.EmptyPoolException;
 import qsh.learning.javaBeginner.vehicle.NoAccelerationException;
 import qsh.learning.javaBeginner.vehicle.TooHighSpeedException;
-import qsh.learning.javaBeginner.vehicle.Wheel;
+import qsh.learning.javaBeginner.vehicle.wheel.Wheel;
 import qsh.learning.javaBeginner.vehicle.terrestrial.TerrestrialVehicle;
 
 import java.util.List;

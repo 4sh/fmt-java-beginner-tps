@@ -3,11 +3,10 @@ package qsh.learning.javaBeginner.vehicle.terrestrial;
 import qsh.learning.javaBeginner.vehicle.NoAccelerationException;
 import qsh.learning.javaBeginner.vehicle.TooHighSpeedException;
 import qsh.learning.javaBeginner.vehicle.Vehicle;
-import qsh.learning.javaBeginner.vehicle.Wheel;
+import qsh.learning.javaBeginner.vehicle.wheel.DirectionWheel;
+import qsh.learning.javaBeginner.vehicle.wheel.Wheel;
 
 import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.Iterator;
 import java.util.Comparator;
 import java.util.List;
 
@@ -18,20 +17,28 @@ public class TerrestrialVehicle implements Vehicle {
     protected List<Wheel> leftWheels = new ArrayList<>();
     private int speed = 0;
 
+
     public TerrestrialVehicle(List<Wheel> wheels) {
         this(wheels, false);
     }
 
     public TerrestrialVehicle(List<Wheel> wheels, boolean oneWheelsLine) {
         this.oneWheelsLine = oneWheelsLine;
+        setWheels(wheels);
+        sortWheels();
+    }
+
+    private void setWheels(List<Wheel> wheels) {
         for (var wheel : wheels) {
-            if (wheel.direction() == Wheel.DirectionWheel.RIGHT && !oneWheelsLine) {
+            if (wheel.direction() == DirectionWheel.RIGHT && !oneWheelsLine) {
                 this.rightWheels.add(wheel);
             } else {
                 this.leftWheels.add(wheel);
             }
         }
+    }
 
+    private void sortWheels() {
         var comparator = new Comparator<Wheel>() {
             @Override
             public int compare(Wheel o1, Wheel o2) {
