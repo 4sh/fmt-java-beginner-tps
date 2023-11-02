@@ -6,6 +6,9 @@ import qsh.learning.javaBeginner.vehicle.Vehicle;
 import qsh.learning.javaBeginner.vehicle.Wheel;
 
 import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.Iterator;
+import java.util.Comparator;
 import java.util.List;
 
 public class TerrestrialVehicle implements Vehicle {
@@ -21,8 +24,22 @@ public class TerrestrialVehicle implements Vehicle {
 
     public TerrestrialVehicle(List<Wheel> wheels, boolean oneWheelsLine) {
         this.oneWheelsLine = oneWheelsLine;
-        // ajouter les roues dans le bon axe, en fonction de la direction
-        // trier les roues sur chaque axes, du meilleur au plus mauvais pneu
+        for (var wheel : wheels) {
+            if (wheel.direction() == Wheel.DirectionWheel.RIGHT && !oneWheelsLine) {
+                this.rightWheels.add(wheel);
+            } else {
+                this.leftWheels.add(wheel);
+            }
+        }
+
+        var comparator = new Comparator<Wheel>() {
+            @Override
+            public int compare(Wheel o1, Wheel o2) {
+                return Double.compare(o1.wear(), o2.wear());
+            }
+        }.reversed();
+        this.rightWheels.sort(comparator);
+        this.leftWheels.sort(comparator);
     }
 
     public void accelerate() throws NoAccelerationException, TooHighSpeedException {
@@ -51,15 +68,22 @@ public class TerrestrialVehicle implements Vehicle {
     }
 
     public String getWheelsDescription() {
-        // parcourir les roues pour afficher sur le modèle suivant
-        // RXX/BRAND---RXX/BRAND
-        //          |
-        // RXX/BRAND---RXX/BRAND
-        //
-        // ou 1 seul axe
-        //
-        // RXX/BRAND
-        //    |
-        // RXX/BRAND
+        StringBuilder sb = new StringBuilder();
+
+        for (int i = 0; i < leftWheels.size(); i++) {
+            if (oneWheelsLine) {
+                if (i > 0) {
+                    sb.append("    |\n");
+                }
+                sb.append(leftWheels.get(i)).append("\n");
+            } else {
+                if (i > 0) {
+                    sb.append("          |\n");
+                }
+                sb.append(leftWheels.get(i)).append("---").append(rightWheels.get(i)).append("\n");
+            }
+        }
+
+        return sb.toString();
     }
 }
