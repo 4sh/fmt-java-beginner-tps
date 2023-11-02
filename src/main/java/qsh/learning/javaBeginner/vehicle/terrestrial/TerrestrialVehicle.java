@@ -10,13 +10,10 @@ import qsh.learning.javaBeginner.vehicle.wheel.WheelId;
 import java.util.*;
 
 public class TerrestrialVehicle implements Vehicle {
-
     private final boolean oneWheelsLine;
     protected List<Wheel> rightWheels = new ArrayList<>();
     protected List<Wheel> leftWheels = new ArrayList<>();
-    private final Set<WheelId> wheelIds = new HashSet<>();
     private int speed = 0;
-
 
     public TerrestrialVehicle(List<Wheel> wheels) {
         this(wheels, false);
@@ -30,13 +27,10 @@ public class TerrestrialVehicle implements Vehicle {
 
     private void setWheels(List<Wheel> wheels) {
         for (var wheel : wheels) {
-            if (!wheelIds.contains(wheel.wheelId())) {
-                wheelIds.add(wheel.wheelId());
-                if (wheel.direction() == DirectionWheel.RIGHT && !oneWheelsLine) {
-                    this.rightWheels.add(wheel);
-                } else {
-                    this.leftWheels.add(wheel);
-                }
+            if (wheel.direction() == DirectionWheel.RIGHT && !oneWheelsLine) {
+                this.rightWheels.add(wheel);
+            } else {
+                this.leftWheels.add(wheel);
             }
         }
     }
@@ -77,6 +71,7 @@ public class TerrestrialVehicle implements Vehicle {
         return rightWheels.size() + leftWheels.size();
     }
 
+
     public String getWheelsDescription() {
         StringBuilder sb = new StringBuilder();
 
@@ -95,5 +90,9 @@ public class TerrestrialVehicle implements Vehicle {
         }
 
         return sb.toString();
+    }
+
+    public Wheel getWheelById(WheelId id) {
+
     }
 }

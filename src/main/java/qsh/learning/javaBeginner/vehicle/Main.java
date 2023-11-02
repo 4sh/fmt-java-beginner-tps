@@ -3,6 +3,7 @@ package qsh.learning.javaBeginner.vehicle;
 import qsh.learning.javaBeginner.vehicle.engined.Truck;
 import qsh.learning.javaBeginner.vehicle.wheel.DirectionWheel;
 import qsh.learning.javaBeginner.vehicle.wheel.Wheel;
+import qsh.learning.javaBeginner.vehicle.wheel.WheelId;
 
 public class Main {
     public static void main(String[] args) {
@@ -18,5 +19,6 @@ public class Main {
 
         var truck = new Truck("AZ789BB", 100, wheel1, wheel2, wheel3, wheel4, wheel5, wheel6, wheel7, wheel8, wheel9);
         System.out.println("test nbWheels should be 8 : " + truck.getNbOfWheels());
+        System.out.println("should find a wheel : " + truck.getWheelById(new WheelId("GoodYear pneu", "006")));
     }
 }

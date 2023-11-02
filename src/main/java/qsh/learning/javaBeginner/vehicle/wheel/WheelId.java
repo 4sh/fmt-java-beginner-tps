@@ -34,9 +34,4 @@ public class WheelId {
         WheelId wheelId = (WheelId) o;
         return brandWheel == wheelId.brandWheel && Objects.equals(serialId, wheelId.serialId);
     }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(brandWheel, serialId);
-    }
 }
