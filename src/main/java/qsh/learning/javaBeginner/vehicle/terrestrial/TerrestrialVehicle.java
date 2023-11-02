@@ -13,6 +13,7 @@ public class TerrestrialVehicle implements Vehicle {
     private final boolean oneWheelsLine;
     protected List<Wheel> rightWheels = new ArrayList<>();
     protected List<Wheel> leftWheels = new ArrayList<>();
+    private final Map<WheelId, Wheel> allWheels = new HashMap<>();
     private int speed = 0;
 
     public TerrestrialVehicle(List<Wheel> wheels) {
@@ -27,10 +28,13 @@ public class TerrestrialVehicle implements Vehicle {
 
     private void setWheels(List<Wheel> wheels) {
         for (var wheel : wheels) {
-            if (wheel.direction() == DirectionWheel.RIGHT && !oneWheelsLine) {
-                this.rightWheels.add(wheel);
-            } else {
-                this.leftWheels.add(wheel);
+            if (!allWheels.containsKey(wheel.wheelId())) {
+                allWheels.put(wheel.wheelId(),wheel);
+                if (wheel.direction() == DirectionWheel.RIGHT && !oneWheelsLine) {
+                    this.rightWheels.add(wheel);
+                } else {
+                    this.leftWheels.add(wheel);
+                }
             }
         }
     }
@@ -93,6 +97,6 @@ public class TerrestrialVehicle implements Vehicle {
     }
 
     public Wheel getWheelById(WheelId id) {
-
+        return allWheels.get(id);
     }
 }
