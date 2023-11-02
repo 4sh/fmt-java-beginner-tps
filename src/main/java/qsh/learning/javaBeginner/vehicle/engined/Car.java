@@ -12,27 +12,27 @@ public class Car extends EnginedVehicle {
                String immat,
                int gazPool) {
         super(gazPool);
-        this.wheels[0] = rightFrontWheel;
-        this.wheels[1] = leftFrontWheel;
-        this.wheels[2] = rightRearWheel;
-        this.wheels[3] = leftRearWheel;
+        this.wheels.add(rightFrontWheel);
+        this.wheels.add(leftFrontWheel);
+        this.wheels.add(rightRearWheel);
+        this.wheels.add(leftRearWheel);
         this.immat = immat;
     }
 
     public Wheel getRightFrontWheel() {
-        return this.wheels[0];
+        return this.wheels.get(0);
     }
 
     public Wheel getLeftFrontWheel() {
-        return this.wheels[1];
+        return this.wheels.get(1);
     }
 
     public Wheel getRightRearWheel() {
-        return this.wheels[2];
+        return this.wheels.get(2);
     }
 
     public Wheel getLeftRearWheel() {
-        return this.wheels[3];
+        return this.wheels.get(3);
     }
 
     public String getImmat() {

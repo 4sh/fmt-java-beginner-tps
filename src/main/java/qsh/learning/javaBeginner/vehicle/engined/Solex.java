@@ -10,8 +10,8 @@ public class Solex extends EnginedVehicle {
                  Wheel rearWheel,
                  int gazPool) {
         super(gazPool);
-        this.wheels[0] = frontWheel;
-        this.wheels[1] = rearWheel;
+        this.wheels.add(frontWheel);
+        this.wheels.add(rearWheel);
     }
 
     @Override
@@ -32,11 +32,11 @@ public class Solex extends EnginedVehicle {
     }
 
     public Wheel getFrontWheel() {
-        return this.wheels[0];
+        return this.wheels.get(0);
     }
 
     public Wheel getRearWheel() {
-        return this.wheels[1];
+        return this.wheels.get(1);
     }
 
     public boolean isStand() {

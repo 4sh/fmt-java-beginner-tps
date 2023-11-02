@@ -5,9 +5,12 @@ import qsh.learning.javaBeginner.vehicle.TooHighSpeedException;
 import qsh.learning.javaBeginner.vehicle.Vehicle;
 import qsh.learning.javaBeginner.vehicle.Wheel;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class TerrestrialVehicle implements Vehicle {
 
-    protected Wheel[] wheels = new Wheel[4];
+    protected List<Wheel> wheels = new ArrayList<>();
 
     private int speed = 0;
 
@@ -33,11 +36,7 @@ public class TerrestrialVehicle implements Vehicle {
     }
 
     public int getNbOfWheels() {
-        int i = 0;
-        while (i < wheels.length && wheels[i] != null) {
-            i++;
-        }
-        return i;
+       return wheels.size();
     }
 
 }
