@@ -3,8 +3,12 @@ package qsh.learning.javaBeginner.vehicle.terrestrial;
 import qsh.learning.javaBeginner.vehicle.NoAccelerationException;
 import qsh.learning.javaBeginner.vehicle.TooHighSpeedException;
 import qsh.learning.javaBeginner.vehicle.Vehicle;
+import qsh.learning.javaBeginner.vehicle.Wheel;
 
 public class TerrestrialVehicle implements Vehicle {
+
+    protected Wheel[] wheels = new Wheel[4];
+
     private int speed = 0;
 
     public void accelerate() throws NoAccelerationException, TooHighSpeedException {
@@ -14,7 +18,7 @@ public class TerrestrialVehicle implements Vehicle {
         this.speed++;
     }
 
-    public void decelerate()  {
+    public void decelerate() {
         if (speed > 0) {
             this.speed--;
         }
@@ -28,5 +32,12 @@ public class TerrestrialVehicle implements Vehicle {
         return speed;
     }
 
+    public int getNbOfWheels() {
+        int i = 0;
+        while (i < wheels.length && wheels[i] != null) {
+            i++;
+        }
+        return i;
+    }
 
 }

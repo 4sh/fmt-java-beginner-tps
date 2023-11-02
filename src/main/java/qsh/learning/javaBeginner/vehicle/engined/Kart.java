@@ -4,10 +4,6 @@ import qsh.learning.javaBeginner.vehicle.Wheel;
 import qsh.learning.javaBeginner.vehicle.engined.EnginedVehicle;
 
 public class Kart extends EnginedVehicle {
-    private final Wheel rightFrontWheel;
-    private final Wheel leftFrontWheel;
-    private final Wheel rightRearWheel;
-    private final Wheel leftRearWheel;
 
     public Kart(Wheel rightFrontWheel,
                 Wheel leftFrontWheel,
@@ -15,26 +11,26 @@ public class Kart extends EnginedVehicle {
                 Wheel leftRearWheel,
                 int gazPool) {
         super(gazPool);
-        this.rightFrontWheel = rightFrontWheel;
-        this.leftFrontWheel = leftFrontWheel;
-        this.rightRearWheel = rightRearWheel;
-        this.leftRearWheel = leftRearWheel;
+        this.wheels[0] = rightFrontWheel;
+        this.wheels[1] = leftFrontWheel;
+        this.wheels[2] = rightRearWheel;
+        this.wheels[3] = leftRearWheel;
     }
 
     public Wheel getRightFrontWheel() {
-        return rightFrontWheel;
+        return this.wheels[0];
     }
 
     public Wheel getLeftFrontWheel() {
-        return leftFrontWheel;
+        return this.wheels[1];
     }
 
     public Wheel getRightRearWheel() {
-        return rightRearWheel;
+        return this.wheels[2];
     }
 
     public Wheel getLeftRearWheel() {
-        return leftRearWheel;
+        return this.wheels[3];
     }
 
     @Override
