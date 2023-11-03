@@ -17,9 +17,4 @@ public record Wheel(WheelId wheelId, int diameter, DirectionWheel direction, dou
     private TypeWheel getTypeWheel() {
         return wheelId.getBrandWheel() != null ? wheelId.getBrandWheel().type : null;
     }
-
-    @Override
-    public String toString() {
-        return "R" + diameter + "/" + wheelId.getBrandWheel();
-    }
 }

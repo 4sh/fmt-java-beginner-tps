@@ -1,12 +1,11 @@
 package qsh.learning.javaBeginner.text;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.PrintWriter;
-import java.nio.file.Files;
+import qsh.learning.javaBeginner.vehicle.wheel.DirectionWheel;
+import qsh.learning.javaBeginner.vehicle.wheel.Wheel;
+
+import java.io.*;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.Arrays;
 
 public class ReadWriteText {
 
@@ -41,18 +40,8 @@ public class ReadWriteText {
         var tp9 = Paths.get("target", "tp9");
         tp9.toFile().mkdir();
 
-        Path javaHistory = tp9.resolve("java_history");
+        Path wheelPath = tp9.resolve("wheel");
 
-        try (var writer = new PrintWriter(Files.newBufferedWriter(javaHistory))) {
-            Arrays.stream(generatedHistory.split("\n")).filter(s -> !s.isBlank()).forEach(writer::println);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
 
-        try(var lines = Files.lines(javaHistory)) {
-            System.out.println(lines.mapToInt(String::length).average());
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
     }
 }
