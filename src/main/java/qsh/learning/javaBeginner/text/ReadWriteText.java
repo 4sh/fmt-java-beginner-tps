@@ -51,6 +51,14 @@ public class ReadWriteText {
             throw new RuntimeException(e);
         }
 
-
+        try (FileReader reader = new FileReader(javaHistory.toFile(), StandardCharsets.ISO_8859_1)) {
+            char[] buffer = new char[5];
+            reader.read(buffer, 0, 5);
+            System.out.println(buffer);
+            reader.read(buffer, 0, 5);
+            System.out.println(buffer);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 }
