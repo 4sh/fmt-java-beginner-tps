@@ -38,6 +38,9 @@ public class AnalyseText {
     }
 
     private static long nbLetters() {
-
+        return generatedHistory.toLowerCase().chars()
+                .mapToObj(i -> (char) i)
+                .filter(character -> character != ' ' && character != '\n')
+                .count();
     }
 }
