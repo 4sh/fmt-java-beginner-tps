@@ -43,12 +43,10 @@ public class ReadWriteText {
 
         Path javaHistory = tp9.resolve("java_history");
 
-        try (var writer = Files.newBufferedWriter(javaHistory)) {
-            writer.write(generatedHistory);
+        try (var writer = new PrintWriter(Files.newBufferedWriter(javaHistory))) {
+            Arrays.stream(generatedHistory.split("\n")).filter(s -> !s.isBlank()).forEach(writer::println);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-
-
     }
 }
