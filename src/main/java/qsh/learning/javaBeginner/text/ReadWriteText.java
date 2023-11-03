@@ -2,9 +2,11 @@ package qsh.learning.javaBeginner.text;
 
 import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.Arrays;
 
 public class ReadWriteText {
 
@@ -41,25 +43,11 @@ public class ReadWriteText {
 
         Path javaHistory = tp9.resolve("java_history");
 
-        try (var writer = Files.newBufferedWriter(javaHistory)) {
-            writer.write(generatedHistory.split("\n")[0]);
-            writer.write("\n");
-            writer.flush();
-
-            try (BufferedReader bufferedReader = Files.newBufferedReader(javaHistory)) {
-                System.out.println(bufferedReader.readLine());
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
-
+        try (var writer = new PrintWriter(Files.newBufferedWriter(javaHistory))) {
+            Arrays.stream(generatedHistory.split("\n")).filter(s -> !s.isBlank()).forEach(writer::println);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
 
-        try (BufferedReader bufferedReader = Files.newBufferedReader(javaHistory)) {
-            System.out.println(bufferedReader.readLine());
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
     }
 }
