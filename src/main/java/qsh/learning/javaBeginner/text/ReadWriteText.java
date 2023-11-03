@@ -38,6 +38,17 @@ public class ReadWriteText {
 
 
     public static void main(String[] args) {
+        var tp9 = Paths.get("target", "tp9");
+        tp9.toFile().mkdir();
+
+        Path javaHistory = tp9.resolve("java_history");
+
+        try (var writer = Files.newBufferedWriter(javaHistory)) {
+            writer.write(generatedHistory);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
 
     }
 }
