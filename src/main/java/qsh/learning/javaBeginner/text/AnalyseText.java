@@ -37,18 +37,20 @@ public class AnalyseText {
             """;
 
     public static void main(String[] args) {
-        String returned = nbOccurrencesByLetter().toString();
-        if (!Objects.equals(returned, "{à=14, a=205, b=4, c=65, d=71, e=301, f=31, '=20, ç=2, g=22, h=2, è=4, é=57, i=184, ê=4, j=21, k=1, ,=17, l=147, -=1, m=36, .=29, î=3, n=141, o=81, p=85, q=11, r=124, s=129, ô=1, t=160, u=100, v=41, w=1, x=6, y=1, z=1}")) {
-            System.out.println(returned + " should be {à=14, a=205, b=4, c=65, d=71, e=301, f=31, '=20, ç=2, g=22, h=2, è=4, é=57, i=184, ê=4, j=21, k=1, ,=17, l=147, -=1, m=36, .=29, î=3, n=141, o=81, p=85, q=11, r=124, s=129, ô=1, t=160, u=100, v=41, w=1, x=6, y=1, z=1}");
+        Character returned = letterWithMostOccurrences();
+        if (returned != 'e') {
+            System.out.println(returned + " should be e");
         } else {
             System.out.println("success !");
         }
     }
 
-    private static Map<Character, Long> nbOccurrencesByLetter() {
-        return generatedHistory.toLowerCase().chars()
+    private static Character letterWithMostOccurrences() {
+        Map<Character, Long> nbOccurrencesByLetter = generatedHistory.toLowerCase().chars()
                 .mapToObj(i -> (char) i)
                 .filter(character -> character != ' ' && character != '\n')
                 .collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
+
+        return
     }
 }
