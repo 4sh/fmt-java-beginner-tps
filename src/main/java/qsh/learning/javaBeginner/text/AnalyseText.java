@@ -51,6 +51,9 @@ public class AnalyseText {
                 .filter(character -> character != ' ' && character != '\n')
                 .collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
 
-        return
+        return nbOccurrencesByLetter.entrySet().stream()
+                .max(Map.Entry.comparingByValue())
+                .orElseThrow()
+                .getKey();
     }
 }
