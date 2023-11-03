@@ -2,6 +2,8 @@ package qsh.learning.javaBeginner.text;
 
 import java.util.Map;
 import java.util.Objects;
+import java.util.function.Function;
+import java.util.stream.Collectors;
 
 import java.util.function.Function;
 import java.util.stream.Collectors;
@@ -47,6 +49,6 @@ public class AnalyseText {
         return generatedHistory.toLowerCase().chars()
                 .mapToObj(i -> (char) i)
                 .filter(character -> character != ' ' && character != '\n')
-                // ...
+                .collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
     }
 }
