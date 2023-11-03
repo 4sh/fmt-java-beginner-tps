@@ -1,5 +1,8 @@
 package qsh.learning.javaBeginner.text;
 
+import java.util.function.Function;
+import java.util.stream.Collectors;
+
 public class AnalyseText {
 
     private static String generatedHistory = """
@@ -38,7 +41,12 @@ public class AnalyseText {
     }
 
     private static int nbLetterOccurrences() {
-
+        return generatedHistory.toLowerCase().chars()
+                .mapToObj(i -> (char) i)
+                .filter(character -> character != ' ' && character != '\n')
+                .collect(Collectors.groupingBy(Function.identity()))
+                .values()
+                .size();
     }
 
 }
