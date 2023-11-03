@@ -49,5 +49,10 @@ public class ReadWriteText {
             throw new RuntimeException(e);
         }
 
+        try(var lines = Files.lines(javaHistory)) {
+            System.out.println(lines.mapToInt(String::length).average());
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 }
