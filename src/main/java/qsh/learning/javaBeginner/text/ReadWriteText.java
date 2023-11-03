@@ -1,6 +1,9 @@
 package qsh.learning.javaBeginner.text;
 
-import java.io.File;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Arrays;
@@ -35,9 +38,6 @@ public class ReadWriteText {
 
 
     public static void main(String[] args) {
-        Arrays.stream(Paths.get(".").toFile().listFiles())
-                .filter(File::isFile)
-                .map(File::getAbsolutePath)
-                .forEach(System.out::println);
+
     }
 }
