@@ -1,8 +1,9 @@
 package qsh.learning.javaBeginner.vehicle.wheel;
 
+import java.io.Serializable;
 import java.util.Objects;
 
-public class WheelId {
+public class WheelId implements Serializable {
     private final BrandWheel brandWheel;
     private final String serialId;
 

@@ -42,6 +42,20 @@ public class ReadWriteText {
 
         Path wheelPath = tp9.resolve("wheel");
 
+        try (ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(wheelPath.toFile()))) {
 
+            Wheel wheelToSerialize = new Wheel("GoodYear pneu", "006", 18, DirectionWheel.RIGHT, 0.2);
+            System.out.println(wheelToSerialize);
+            out.writeObject(wheelToSerialize);
+
+            var in = new ObjectInputStream(new FileInputStream(wheelPath.toFile()));
+            Object o = in.readObject();
+            if (o instanceof Wheel wheel) {
+                System.out.println(wheel);
+            }
+
+        } catch (IOException | ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
     }
 }
