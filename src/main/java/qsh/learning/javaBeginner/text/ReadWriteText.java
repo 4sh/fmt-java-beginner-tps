@@ -1,5 +1,6 @@
 package qsh.learning.javaBeginner.text;
 
+import java.io.BufferedReader;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -43,9 +44,22 @@ public class ReadWriteText {
         try (var writer = Files.newBufferedWriter(javaHistory)) {
             writer.write(generatedHistory.split("\n")[0]);
             writer.write("\n");
+            writer.flush();
+
+            try (BufferedReader bufferedReader = Files.newBufferedReader(javaHistory)) {
+                System.out.println(bufferedReader.readLine());
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
 
+        try (BufferedReader bufferedReader = Files.newBufferedReader(javaHistory)) {
+            System.out.println(bufferedReader.readLine());
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 }
