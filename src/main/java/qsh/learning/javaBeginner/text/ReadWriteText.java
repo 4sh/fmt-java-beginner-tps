@@ -1,14 +1,9 @@
 package qsh.learning.javaBeginner.text;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.Arrays;
 
 public class ReadWriteText {
 
@@ -45,20 +40,12 @@ public class ReadWriteText {
 
         Path javaHistory = tp9.resolve("java_history");
 
-        try (var writer = new PrintWriter(Files.newBufferedWriter(javaHistory))) {
-            Arrays.stream(generatedHistory.split("\n")).filter(s -> !s.isBlank()).forEach(writer::println);
+        try (var writer = Files.newBufferedWriter(javaHistory)) {
+            writer.write(generatedHistory.split("\n")[0]);
+            writer.write("\n");
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
 
-        try (FileReader reader = new FileReader(javaHistory.toFile(), StandardCharsets.ISO_8859_1)) {
-            char[] buffer = new char[5];
-            reader.read(buffer, 0, 5);
-            System.out.println(buffer);
-            reader.read(buffer, 0, 5);
-            System.out.println(buffer);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
     }
 }
