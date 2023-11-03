@@ -1,8 +1,10 @@
 package qsh.learning.javaBeginner.text;
 
 import java.io.BufferedReader;
+import java.io.FileReader;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -11,7 +13,7 @@ import java.util.Arrays;
 public class ReadWriteText {
 
     private static String generatedHistory = """
-            La fontaine de Java
+            La fontaîne de Java
                         
             Dans un monde lointain, il était une fois une île appelée Java. Java était une île magnifique, avec des plages de sable blanc, des forêts tropicales luxuriantes et des volcans enneigés.
                         
@@ -48,5 +50,7 @@ public class ReadWriteText {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+
+
     }
 }
