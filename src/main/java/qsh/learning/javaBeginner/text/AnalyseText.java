@@ -29,18 +29,16 @@ public class AnalyseText {
             """;
 
     public static void main(String[] args) {
-        long returned = nbLetters();
-        if (returned != 2123L) {
-            System.out.println(returned + " should be 2123");
+        int returned = nbLetterOccurrences();
+        if (returned != 37) {
+            System.out.println(returned + " should be 37");
         } else {
             System.out.println("success !");
         }
     }
 
-    private static long nbLetters() {
-        return generatedHistory.toLowerCase().chars()
-                .mapToObj(i -> (char) i)
-                .filter(character -> character != ' ' && character != '\n')
-                .count();
+    private static int nbLetterOccurrences() {
+
     }
+
 }
