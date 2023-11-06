@@ -31,9 +31,14 @@ public class DatabaseLoader {
             Wheel wheel2 = new Wheel("Michelin", "002", 19, DirectionWheel.RIGHT, 0.1);
             Wheel wheel3 = new Wheel("Michelin", "006", 17, DirectionWheel.LEFT, 1);
 
+            conn.setAutoCommit(false);
+
             wheelRepository.insertWheel(wheel1);
+            conn.rollback();
             wheelRepository.insertWheel(wheel2);
             wheelRepository.insertWheel(wheel3);
+
+            conn.commit();
 
 
             Set<Wheel> wheelsFound = new HashSet<>(wheelRepository.findWheelByBrand(BrandWheel.MICHE));
