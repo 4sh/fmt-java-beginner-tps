@@ -40,4 +40,12 @@ public class WheelId implements Serializable {
     public int hashCode() {
         return Objects.hash(brandWheel, serialId);
     }
+
+    @Override
+    public String toString() {
+        return "WheelId{" +
+                "brandWheel=" + brandWheel +
+                ", serialId='" + serialId + '\'' +
+                '}';
+    }
 }
