@@ -9,20 +9,25 @@ import qsh.learning.javaBeginner.vehicle.wheel.Wheel;
 import java.util.List;
 
 public abstract class EnginedVehicle extends TerrestrialVehicle {
-    private boolean started = false;
+    private final int nbOfInjection;
     private int gazPool;
+    private final Engine engine;
 
-    public EnginedVehicle(int gazPool, List<Wheel> wheels) {
+    public EnginedVehicle(int gazPool, Engine engine, List<Wheel> wheels) {
+        this(gazPool, engine, 1, wheels);
+    }
+
+    public EnginedVehicle(int gazPool, Engine engine, int nbOfInjection, List<Wheel> wheels) {
         super(wheels);
+        this.engine = engine;
         this.gazPool = gazPool;
+        this.nbOfInjection = nbOfInjection;
     }
 
     public void accelerate() throws NoAccelerationException {
         try {
-            if (!started) {
-                throw new NotStartedException();
-            }
-            for (int i = getPower(); i > 0; i--) {
+            int power = engine.injectGaz(nbOfInjection);
+            for (int i = power; i > 0; i--) {
                 if (gazPool > 0) {
                     super.accelerate();
                     this.gazPool--;
@@ -37,25 +42,20 @@ public abstract class EnginedVehicle extends TerrestrialVehicle {
     }
 
     public void decelerate() {
-        for (int i = getPower(); i > 0; i--) {
+        int power = engine.injectGaz(nbOfInjection);
+        for (int i = power; i > 0; i--) {
             super.decelerate();
         }
     }
 
-    abstract public int getPower();
-
     public void start() throws NoAccelerationException {
-        this.started = true;
+        this.engine.start();
         this.accelerate();
     }
 
     public void stop() {
         this.resetSpeed();
-        this.started = false;
-    }
-
-    public boolean isStarted() {
-        return started;
+        this.engine.stop();
     }
 
     public int getGazPool() {

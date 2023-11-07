@@ -11,7 +11,7 @@ public class Solex extends EnginedVehicle {
     public Solex(Wheel wheel1,
                  Wheel wheel2,
                  int gazPool) {
-        super(gazPool, List.of(wheel1, wheel2));
+        super(gazPool, new Engine(2), List.of(wheel1, wheel2));
     }
 
     @Override
@@ -24,11 +24,6 @@ public class Solex extends EnginedVehicle {
     public void stop() {
         this.stand = true;
         super.stop();
-    }
-
-    @Override
-    public int getPower() {
-        return 2;
     }
 
     public boolean isStand() {

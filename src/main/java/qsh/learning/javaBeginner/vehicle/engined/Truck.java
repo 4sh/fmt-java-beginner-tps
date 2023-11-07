@@ -10,7 +10,7 @@ public class Truck extends EnginedVehicle {
     public Truck(String immat,
                  int gazPool,
                  Wheel... wheels) {
-        super(gazPool, List.of(wheels));
+        super(gazPool, new Engine(5), List.of(wheels));
         this.immat = immat;
     }
 
@@ -24,10 +24,5 @@ public class Truck extends EnginedVehicle {
 
     public List<Wheel> getLeftWheels() {
         return leftWheels;
-    }
-
-    @Override
-    public int getPower() {
-        return 6;
     }
 }
