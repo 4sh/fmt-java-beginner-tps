@@ -12,8 +12,10 @@ public class Car extends EnginedVehicle {
                Wheel wheel3,
                Wheel wheel4,
                String immat,
+               Engine engine,
+               int nbOfInjection,
                int gazPool) {
-        super(gazPool, List.of(wheel1, wheel2, wheel3, wheel4));
+        super(gazPool, engine, nbOfInjection, List.of(wheel1, wheel2, wheel3, wheel4));
         this.immat = immat;
     }
 
@@ -36,11 +38,5 @@ public class Car extends EnginedVehicle {
     public String getImmat() {
         return immat;
     }
-
-    @Override
-    public int getPower() {
-        return 6;
-    }
-
 
 }

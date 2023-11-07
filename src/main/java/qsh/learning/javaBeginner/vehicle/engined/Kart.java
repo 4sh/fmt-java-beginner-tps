@@ -11,7 +11,7 @@ public class Kart extends EnginedVehicle {
                 Wheel wheel3,
                 Wheel wheel4,
                 int gazPool) {
-        super(gazPool, List.of(wheel1, wheel2, wheel3, wheel4));
+        super(gazPool, new Engine(4), List.of(wheel1, wheel2, wheel3, wheel4));
     }
 
     public Wheel getRightFrontWheel() {
@@ -28,10 +28,5 @@ public class Kart extends EnginedVehicle {
 
     public Wheel getLeftRearWheel() {
         return this.leftWheels.get(1);
-    }
-
-    @Override
-    public int getPower() {
-        return 4;
     }
 }
