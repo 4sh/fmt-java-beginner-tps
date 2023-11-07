@@ -1,6 +1,5 @@
 package qsh.learning.javaBeginner.vehicle.terrestrial;
 
-import qsh.learning.javaBeginner.DistinctByKey;
 import qsh.learning.javaBeginner.vehicle.NoAccelerationException;
 import qsh.learning.javaBeginner.vehicle.TooHighSpeedException;
 import qsh.learning.javaBeginner.vehicle.Vehicle;
@@ -8,7 +7,11 @@ import qsh.learning.javaBeginner.vehicle.wheel.DirectionWheel;
 import qsh.learning.javaBeginner.vehicle.wheel.Wheel;
 import qsh.learning.javaBeginner.vehicle.wheel.WheelId;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.List;
+import java.util.Map;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 
 import static qsh.learning.javaBeginner.DistinctByKey.uniqueBy;
@@ -26,7 +29,7 @@ public class TerrestrialVehicle implements Vehicle {
 
     public TerrestrialVehicle(List<Wheel> wheels, boolean oneWheelsLine) {
         this.oneWheelsLine = oneWheelsLine;
-        allWheels = wheels.stream().collect(Collectors.toMap(Wheel::wheelId, wheel -> wheel));
+        allWheels = wheels.stream().collect(Collectors.toMap(Wheel::wheelId, Function.identity(), (first, second) -> first));
         Map<Boolean, List<Wheel>> collect = wheels.stream()
                 .sorted(Comparator.comparingDouble(Wheel::wear).reversed())
                 .filter(uniqueBy(Wheel::wheelId))
