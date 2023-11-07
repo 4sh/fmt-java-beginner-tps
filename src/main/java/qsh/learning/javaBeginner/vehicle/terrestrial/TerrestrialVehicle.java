@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 
 import static qsh.learning.javaBeginner.DistinctByKey.uniqueBy;
@@ -30,7 +31,7 @@ public class TerrestrialVehicle implements Vehicle {
         this.oneWheelsLine = oneWheelsLine;
         allWheels = wheels.stream()
                 .filter(uniqueBy(Wheel::wheelId))
-                .collect(Collectors.toMap(Wheel::wheelId, wheel -> wheel));
+                .collect(Collectors.toMap(Wheel::wheelId, Function.identity(), (first, second) -> first));
         Map<Boolean, List<Wheel>> collect = wheels.stream()
                 .sorted(Comparator.comparingDouble(Wheel::wear).reversed())
                 .filter(uniqueBy(Wheel::wheelId))
