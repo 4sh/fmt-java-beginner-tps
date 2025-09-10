@@ -1,12 +1,12 @@
 package qsh.learning.javaBeginner.text;
 
-import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Arrays;
+import java.util.function.Predicate;
 
 public class ReadWriteText {
 
@@ -44,7 +44,9 @@ public class ReadWriteText {
         Path javaHistory = tp9.resolve("java_history");
 
         try (var writer = new PrintWriter(Files.newBufferedWriter(javaHistory))) {
-            Arrays.stream(generatedHistory.split("\n")).filter(s -> !s.isBlank()).forEach(writer::println);
+            Arrays.stream(generatedHistory.split("\n"))
+                .filter(Predicate.not(String::isBlank))
+                .forEach(writer::println);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
