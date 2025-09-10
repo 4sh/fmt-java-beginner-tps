@@ -1,12 +1,9 @@
 package qsh.learning.javaBeginner.text;
 
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.Arrays;
 
 public class ReadWriteText {
 
@@ -43,6 +40,11 @@ public class ReadWriteText {
 
         Path javaHistory = tp9.resolve("java_history");
 
+        /* Indices :
+         * PrintWriter est favorisé pour l'écriture de texte formaté.
+         * On va pouvoir l'initialiser en encapsulant le BufferedWriter dans un try-with-resources.
+         * L'API stream pourra être utilisé pour filtrer ce qu'on voudra ensuite écrire.
+        */
         try (var writer = Files.newBufferedWriter(javaHistory)) {
             writer.write(generatedHistory);
         } catch (IOException e) {
